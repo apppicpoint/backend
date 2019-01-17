@@ -1,3 +1,29 @@
-<p>
-  users works!
-</p>
+<app-nav></app-nav>
+<div class="container p-2">
+  <h3 class="float-left m-2">Usuarios</h3>
+  <button class="btn btn-primary btn-sm m-2">Nuevo usuario</button>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Rol</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.role_id}}</td>
+      <td><a class="btn btn-primary btn-sm">Ver/Editar</a></td>
+      <td><a class="btn btn-primary btn-sm btn-danger">Eliminar</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
