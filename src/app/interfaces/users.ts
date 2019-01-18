@@ -3,9 +3,10 @@ export interface User {
   name?: string;
   role_id?: number;
   nickName?: string;
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   telephone?: number;
   photo?: string;
   biography?: string;
+  banned?: number;
 }

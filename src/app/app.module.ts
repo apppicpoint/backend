@@ -13,7 +13,7 @@ import { PublicationsComponent } from './publications/publications.component';
 import { ShowReportComponent } from './show-report/show-report.component';
 import {Route, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
@@ -24,7 +24,7 @@ const routes: Route[] = [
   {path: 'spots', component: SpotsComponent},
   {path: 'comments', component: SpotsComponent},
   {path: 'users/new', component: NewUserComponent},
-  {path: 'users/{user}', component: EditUserComponent},
+  {path: 'users/:user', component: NewUserComponent},
 ];
 
 @NgModule({
@@ -46,7 +46,8 @@ const routes: Route[] = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

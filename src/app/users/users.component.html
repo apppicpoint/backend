@@ -1,7 +1,8 @@
+
 <app-nav></app-nav>
-<div class="container p-2">
+<div class="container p-2" >
   <h3 class="float-left m-2">Usuarios</h3>
-  <button class="btn btn-primary btn-sm m-2">Nuevo usuario</button>
+  <a class="btn btn-primary btn-sm m-2" routerLink="new">Nuevo usuario</a>
   <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -15,15 +16,22 @@
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
-      <td>{{user.id}}</td>
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.role_id}}</td>
-      <td><a class="btn btn-primary btn-sm">Ver/Editar</a></td>
-      <td><a class="btn btn-primary btn-sm btn-danger">Eliminar</a></td>
+      <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.id}}</td>
+      <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.nickName}}</td>
+      <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.email}}</td>
+      <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.role_id}}</td>
+      <td><a class="btn btn-primary btn-sm text-light" routerLink="/users/{{user.id}}">Ver/Editar</a></td>
+      <td><a class="btn btn-primary btn-sm text-light" [ngClass]="{'btn-danger': user.banned === 0, 'btn-warning': user.banned === 1}"
+             (click)="changeBannedState(user.id)">
+        <div *ngIf="user.banned === 0">Bloquear</div>
+        <div *ngIf="user.banned === 1">Desbloquear</div>
+      </a></td>
     </tr>
 
     </tbody>
   </table>
 
 </div>
+<div class="text-danger">{{error}}</div>
+
+
