@@ -1,3 +1,36 @@
-<p>
-  spots works!
-</p>
+
+<app-nav></app-nav>
+<div *ngIf="spots && spots.length != 0" class="container p-2" >
+  <h3 class="float-left m-2">Spots</h3>
+  <a class="btn btn-primary btn-sm m-2" routerLink="new">Nuevo spot</a>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Latitud</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">Usuario</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let spot of spots">
+      <td >{{spot.id}}</td>
+      <td>{{spot.name}}</td>
+      <td>{{spot.latitude}}</td>
+      <td>{{spot.longitude}}</td>
+      <td>{{spot.user_id}}</td>
+      <td><a class="btn btn-primary btn-sm text-light" routerLink="/spots/{{spot.id}}">Ver/Editar</a></td>
+      <td><a class="btn btn-primary btn-sm text-light btn-danger" (click)="delete(spot.id)">Eliminar</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<h1 class="text-danger" *ngIf="spots && spots.length == 0">No hay spots</h1>
+<div class="text-danger">{{error}}</div>
+
+

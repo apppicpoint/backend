@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './users/users.component';
 import { SpotsComponent } from './spots/spots.component';
 import { ReportsComponent } from './reports/reports.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditSpotComponent } from './edit-spot/edit-spot.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { ShowReportComponent } from './show-report/show-report.component';
@@ -25,6 +24,8 @@ const routes: Route[] = [
   {path: 'comments', component: SpotsComponent},
   {path: 'users/new', component: NewUserComponent},
   {path: 'users/:user', component: NewUserComponent},
+  {path: 'spots/new', component: EditSpotComponent},
+  {path: 'spots/:spot', component: EditSpotComponent},
 ];
 
 @NgModule({
@@ -34,7 +35,6 @@ const routes: Route[] = [
     UsersComponent,
     SpotsComponent,
     ReportsComponent,
-    EditUserComponent,
     EditSpotComponent,
     PublicationsComponent,
     ShowReportComponent,

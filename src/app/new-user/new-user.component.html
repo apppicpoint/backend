@@ -3,26 +3,26 @@
 <br>
 <br>
 <div class="container align-content-center border p-5 shadow" >
-  <h2>Nuevo usuario</h2>
-
+  <h2 *ngIf="!editing">Nuevo usuario</h2>
+  <h2 *ngIf="editing">Modificar usuario</h2>
   <div class="form-group">
     <label>Nombre</label>
-    <input [(ngModel)]="user.name" type="text" class="form-control"   placeholder="Nombre" required="required">
+    <input [(ngModel)]="user.name" type="text" class="form-control"   placeholder="Pepe Martín" required="required">
   </div>
 
   <div class="form-group">
     <label>NickName </label>
-    <input [(ngModel)]="user.nickName" type="text" class="form-control"   placeholder="NickName" required="required">
+    <input [(ngModel)]="user.nickName" type="text" class="form-control"   placeholder="pepe23" required="required">
   </div>
 
   <div class="form-group">
     <label>Email </label>
-    <input [(ngModel)]="user.email" type="email" class="form-control"  placeholder="email" required="required">
+    <input [(ngModel)]="user.email" type="email" class="form-control"  placeholder="pepito@mail.com" required="required">
   </div>
 
   <div class="form-group">
     <label>Password</label>
-    <input [(ngModel)]="user.password" type="text" class="form-control" placeholder="Password" required="required">
+    <input [(ngModel)]="user.password" type="text" class="form-control" placeholder="***********" required="required">
   </div>
 
   <div class="form-group">
@@ -36,7 +36,7 @@
 
   <div class="form-group">
     <label>Biografía</label>
-    <textarea [(ngModel)]="user.biography" class="form-control"   placeholder="Biografía"></textarea>
+    <textarea [(ngModel)]="user.biography" class="form-control"   placeholder="Fotógrafo aficionado a las papayas"></textarea>
   </div>
 
   <div class="form-group">

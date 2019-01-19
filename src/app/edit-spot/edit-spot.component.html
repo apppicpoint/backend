@@ -1,3 +1,51 @@
-<p>
-  edit-spot works!
-</p>
+<app-nav></app-nav>
+
+<br>
+<br>
+<div class="container align-content-center border p-5 shadow" >
+  <h2 *ngIf="!editing">Nuevo Spot</h2>
+  <h2 *ngIf="editing">Modificar Spot</h2>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input [(ngModel)]="spot.name" type="text" class="form-control"   placeholder="Plaza Mayor" required="required">
+  </div>
+
+  <div class="form-group ">
+    <div class="float-left mr-2">
+      <label>Longitud </label>
+      <input [(ngModel)]="spot.longitude" type="number" class="form-control "   placeholder="45.49583" required="required">
+    </div>
+    <div>
+      <label>Latitud </label>
+      <input [(ngModel)]="spot.latitude" type="number" class="form-control w-25"  placeholder="-120.0493213" required="required">
+    </div>
+   </div>
+
+  <div class="form-group">
+
+  </div>
+
+  <div class="form-group">
+    <label>ID de Usuario</label>
+    <input *ngIf="!editing" [(ngModel)]="spot.email" type="number" class="form-control"  placeholder="#3132" required="required">
+    <div *ngIf="editing">{{spot.user_id}}</div>
+  </div>
+
+  <div class="form-group">
+    <label>Ciudad</label>
+    <input [(ngModel)]="spot.city" type="text" class="form-control" placeholder="Madrid" required="required">
+  </div>
+
+  <div class="form-group">
+    <label>País</label>
+    <input [(ngModel)]="spot.country" type="text" class="form-control" placeholder="España" required="required">
+  </div>
+
+  <div class="form-group">
+    <label>Descripción</label>
+    <textarea [(ngModel)]="spot.description" class="form-control"   placeholder="Buen sitio para tomar una relaxing cup of café con leche"></textarea>
+  </div>
+
+  <button *ngIf="!editing" (click)="register()" class="btn btn-primary ">Guardar nuevo spot</button>
+  <button *ngIf="editing" (click)="modify()" class="btn btn-primary ">Modificar spot</button>
+</div>
