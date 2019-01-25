@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
+// Rutas y endpoints
 const routes: Route[] = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},

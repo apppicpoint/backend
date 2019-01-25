@@ -9,7 +9,7 @@ import {SpotsService} from '../services/spots.service';
 })
 export class SpotsComponent implements OnInit {
 
-  spots: Spot[];
+  spots: Spot[]; // Se declara un array vacio de spots
 
   constructor(private spotsService: SpotsService) {
     spotsService.get().subscribe( (data: [Spot]) => {
@@ -20,6 +20,9 @@ export class SpotsComponent implements OnInit {
       alert(error['error'].message);
     });
   }
+
+  // Borra el spot
+
   delete(id) {
     this.spotsService.delete(id).subscribe( () => {
       location.reload();

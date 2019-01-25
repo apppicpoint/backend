@@ -6,7 +6,7 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class AuthService {
-  API_ENDPOINT = 'http://localhost:8888/api/public/api/';
+  API_ENDPOINT = 'http://192.168.6.162/api/public/index.php/api/';
   constructor(private httpClient: HttpClient) {
   }
   token = localStorage.getItem('token');

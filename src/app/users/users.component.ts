@@ -7,10 +7,10 @@ import {UsersService} from '../services/users.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: User[];
+  users: User[]; // Se declara un array vacio de usuarios
 
   constructor(private userServices: UsersService) {
-    userServices.get().subscribe( (data: [User]) => {
+    userServices.get().subscribe( (data: [User]) => { // Se rellena el array con los usuarios que devuelve la api
      this.users = data['users'];
     }, (error) => {
       console.log('error para variar');
@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
   }
-
+// Modifica el estado del usuario
   changeBannedState(user) {
     this.userServices.changeBannedState(user).subscribe( (data) => {
       location.reload();

@@ -9,10 +9,12 @@ import {UsersService} from '../services/users.service';
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css']
 })
-export class NewUserComponent implements OnInit {
-  id: any;
-  editing = false;
 
+export class NewUserComponent implements OnInit {
+  id: any; // id del objeto que se vaya a modificar cuando se esté en modo edición
+  editing = false; // Activa/desactiva el modo edición
+
+  // Crea un usuario con todos los parametros vacios para rellenarlo desde html
   user: User = {
     name: null,
     nickName: null,
@@ -23,11 +25,14 @@ export class NewUserComponent implements OnInit {
     photo: null,
     role_id: null,
   };
+
+  // Constructor de la clase. Hay que pasar como parametro todos los componentes de angular que se vayan a utilizar. Importante poner
+  // "private".
   constructor(private authService: AuthService, private  router: Router, private activatedRoute: ActivatedRoute,
               private userService: UsersService) {
-    this.id = activatedRoute.snapshot.params['user'];
-    this.editing = !!this.id;
-    if (this.id) {
+    this.id = activatedRoute.snapshot.params['user']; // Obtiene el id pasado en la ruta. Ej .../api/users/7
+    this.editing = !!this.id; // Activa el modo edición cuando el id no sea null
+    if (this.id) { // Rellena los campos del html con los datos del objeto obtenidos de la db
       userService.getUser(this.id).subscribe( (data) => {
         this.user = data['user'];
       }, (error) => {
@@ -39,19 +44,21 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit() {
   }
+  // Registra un nuevo usuario
   register() {
     console.log(this.user);
-    this.authService.register(this.user).subscribe( (data) => {
+    this.authService.register(this.user).subscribe( (data) => { // Hace una peticion post declarada en AuthService.
       console.log(data['token']);
-      this.router.navigate(['/users']);
+      this.router.navigate(['/users']); // Una vez registrado vuelve a la pagina de usuarios
       }, (error) => {
       console.log('error para variar');
       alert(error['error'].message);
     });
   }
+  // modifica un usuario
   modify() {
     console.log(this.user);
-     this.userService.modify(this.user).subscribe( (data) => {
+     this.userService.modify(this.user).subscribe( (data) => {// Hace una peticion put declarada en AuthService.
       this.router.navigate(['/users']);
     }, (error) => {
       console.log('error para variar');

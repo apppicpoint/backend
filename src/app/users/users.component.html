@@ -7,7 +7,7 @@
     <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
+      <th scope="col">Nick</th>
       <th scope="col">Email</th>
       <th scope="col">Rol</th>
       <th scope="col"></th>
@@ -19,7 +19,9 @@
       <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.id}}</td>
       <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.nickName}}</td>
       <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.email}}</td>
-      <td [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">{{user.role_id}}</td>
+      <td *ngIf="user.role_id === 1" [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">Administrador</td>
+      <td *ngIf="user.role_id === 2" [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">Profesional</td>
+      <td *ngIf="user.role_id === 3" [ngClass]="{'text-danger': user.banned === 1, 'text-primary': user.role_id === 1}">Estandar</td>
       <td><a class="btn btn-primary btn-sm text-light" routerLink="/users/{{user.id}}">Ver/Editar</a></td>
       <td><a class="btn btn-primary btn-sm text-light" [ngClass]="{'btn-danger': user.banned === 0, 'btn-warning': user.banned === 1}"
              (click)="changeBannedState(user.id)">
@@ -33,6 +35,5 @@
   <h1 class="text-danger" *ngIf="users && users.length == 0">No hay usuarios</h1>
 
 </div>
-<div class="text-danger">{{error}}</div>
 
 
