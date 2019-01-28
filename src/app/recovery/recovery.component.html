@@ -1,0 +1,33 @@
+<br>
+<br>
+
+<div class="container align-content-center border p-5 shadow">
+  <img src="assets/img/logo.png">
+  <h3>Recuperar contraseña</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="recoveryPassword()">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" formControlName="email" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="user.email"/>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Recuperar contraseña</button>
+    </div>
+    <div class="form-group">
+      <a class="btn" routerLink="/login">Volver al login</a>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+

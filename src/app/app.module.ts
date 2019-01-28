@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 
 // Rutas y endpoints
 const routes: Route[] = [
@@ -27,6 +28,8 @@ const routes: Route[] = [
   {path: 'users/:user', component: NewUserComponent},
   {path: 'spots/new', component: EditSpotComponent},
   {path: 'spots/:spot', component: EditSpotComponent},
+  {path: 'recovery', component: RecoveryComponent},
+
 ];
 
 @NgModule({
@@ -40,7 +43,8 @@ const routes: Route[] = [
     PublicationsComponent,
     ShowReportComponent,
     NavComponent,
-    NewUserComponent
+    NewUserComponent,
+    RecoveryComponent
   ],
   imports: [
     BrowserModule,

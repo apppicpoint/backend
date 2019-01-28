@@ -27,5 +27,14 @@ export class AuthService {
     return this.httpClient.post(this.API_ENDPOINT + 'login', user, {headers: headers});
   }
 
+  recoveryPassword(user: User) {
+    const headers = new HttpHeaders(
+      {
+        'Content-Type': 'application/json'
+      });
+    return this.httpClient.post(this.API_ENDPOINT + 'forgotPass', user,  {headers: headers});
+
+  }
+
 
 }
