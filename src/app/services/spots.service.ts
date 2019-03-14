@@ -3,8 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Spot} from '../interfaces/spot';
 
 const token = localStorage.getItem('token');
-const API_ENDPOINT = 'http://192.168.6.162/api/public/index.php/api/spots';
 
+// const API_ENDPOINT = 'http://192.168.6.162/api/public/index.php/api/';
+const API_ENDPOINT = 'http://localhost//api/public/index.php/api/spots';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -16,10 +17,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SpotsService {
-
-
-
-
 
   constructor(private httpClient: HttpClient) {}
   // Obtiene todos los objetos de la base de datos

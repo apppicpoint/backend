@@ -1,0 +1,25 @@
+<app-nav></app-nav>
+
+<br>
+<br>
+<div class="container align-content-center border p-5 shadow" >
+  <h2 *ngIf="!editing">Nuevo Pic</h2>
+  <h2 *ngIf="editing">Modificar Pic</h2>
+  <div class="form-group">
+    <label>Título</label>
+    <input [(ngModel)]="publication.description" type="text" class="form-control"   placeholder="Título del pic" required="required">
+  </div>
+  <div class="form-group">
+    <label>ID del point asociado</label>
+    <input [(ngModel)]="publication.spot_id" type="text" class="form-control"   placeholder="3" required="required">
+  </div>
+
+  <div class="form-group">
+    <label>ID del usuario asociado</label>
+    <input [(ngModel)]="publication.user_id" type="text" class="form-control"   placeholder="1" required="required">
+  </div>
+
+  <div style="color: red">FUNCIÓN EN DESARROLLO</div>
+  <button *ngIf="!editing" (click)="register()" class="btn btn-primary ">Guardar nuevo pic</button>
+  <button *ngIf="editing" (click)="modify()" class="btn btn-primary ">Modificar pic</button>
+</div>

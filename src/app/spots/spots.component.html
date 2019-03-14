@@ -1,8 +1,9 @@
 
 <app-nav></app-nav>
-<a class="btn btn-primary btn-sm m-2" routerLink="new">Nuevo spot</a>
 
 <div *ngIf="spots && spots.length != 0" class="container p-2" >
+  <a class="btn btn-primary btn-sm m-2" routerLink="new">Nuevo spot</a>
+
   <h3 class="float-left m-2">Spots</h3>
   <table class="table">
     <thead class="thead-dark">

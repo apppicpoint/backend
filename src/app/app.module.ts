@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { RecoveryComponent } from './recovery/recovery.component';
+import { PublicationComponent } from './publication/publication.component';
 
 // Rutas y endpoints
 const routes: Route[] = [
@@ -29,6 +30,9 @@ const routes: Route[] = [
   {path: 'spots/new', component: EditSpotComponent},
   {path: 'spots/:spot', component: EditSpotComponent},
   {path: 'recovery', component: RecoveryComponent},
+  {path: 'publications', component: PublicationsComponent},
+  {path: 'publications/new', component: PublicationComponent},
+  {path: 'publications/:publication', component: PublicationComponent},
 
 ];
 
@@ -44,7 +48,8 @@ const routes: Route[] = [
     ShowReportComponent,
     NavComponent,
     NewUserComponent,
-    RecoveryComponent
+    RecoveryComponent,
+    PublicationComponent
   ],
   imports: [
     BrowserModule,

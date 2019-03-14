@@ -1,3 +1,36 @@
-<p>
-  publications works!
-</p>
+
+<app-nav></app-nav>
+
+<div *ngIf="publications && publications.length != 0" class="container p-2" >
+  <a class="btn btn-primary btn-sm m-2" routerLink="new">Nuevo pic</a>
+
+  <h3 class="float-left m-2">Pics</h3>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID Pic</th>
+      <th scope="col">ID Usuario</th>
+      <th scope="col">Nickname</th>
+      <th scope="col">Likes</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publication of publications">
+      <td >{{publication.id}}</td>
+      <td>{{publication.user_id}}</td>
+      <td>{{publication.user.nickName}}</td>
+      <td>{{publication.likes}}</td>
+      <td><a class="btn btn-primary btn-sm text-light" routerLink="/publications/{{publication.id}}">Ver/Editar</a></td>
+      <td><a class="btn btn-primary btn-sm text-light btn-danger" (click)="delete(publication.id)">Eliminar</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<h1 class="text-danger" *ngIf="publications && publications.length == 0">No hay pics</h1>
+<div class="text-danger">{{error}}</div>
+
+

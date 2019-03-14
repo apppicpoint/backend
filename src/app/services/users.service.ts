@@ -6,8 +6,10 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class UsersService {// 192.168.6.162
-  API_ENDPOINT = 'http://192.168.6.162/api/public/index.php/api/users';
-  token = localStorage.getItem('token');
+
+  // API_ENDPOINT = 'http://192.168.6.162/api/public/index.php/api/';
+  API_ENDPOINT = 'http://localhost/api/public/index.php/api/users';  token = localStorage.getItem('token');
+
   headers = new HttpHeaders(
     {
       'Content-Type': 'application/json',
